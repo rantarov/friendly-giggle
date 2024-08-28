@@ -37,6 +37,9 @@ class InputCheck {
 
     int lengthFirstIndex = inputText.indexOf("\"", 1);
     str1 = inputText.substring(1, lengthFirstIndex);
+    if (str1.length() > 10) {
+      throw new Exception("Строка не должна содержать более 10 символов");
+    }
 
     operator = inputText.charAt(lengthFirstIndex + 1);
     if (operator != '+' && operator != '-' && operator != '*' && operator != '/') {
@@ -76,6 +79,9 @@ class StringCalculator {
       throw new Exception("Вторым аргументом должна быть строка в кавычках");
     }
     String str2 = secondPart.substring(1, secondPart.length() - 1);
+    if (str2.length() > 10) {
+      throw new Exception("Строка не должна содержать более 10 символов");
+    }
     return str1 + str2;
   }
 
