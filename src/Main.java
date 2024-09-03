@@ -30,7 +30,7 @@ class InputCheck {
   }
 
   private void checkInput(String inputText) throws Exception {
-    inputText = inputText.replaceAll("\\s", "");
+//    inputText = inputText.replaceAll("\\s", "");
     if (!inputText.startsWith("\"") || inputText.indexOf("\"", 1) == -1) {
       throw new Exception("Первым аргументом должна быть строка в кавычках");
     }
@@ -41,11 +41,11 @@ class InputCheck {
       throw new Exception("Строка не должна содержать более 10 символов");
     }
 
-    operator = inputText.charAt(lengthFirstIndex + 1);
+    operator = inputText.charAt(lengthFirstIndex + 2);
     if (operator != '+' && operator != '-' && operator != '*' && operator != '/') {
       throw new Exception("Неподдерживаемая операция");
     }
-    secondArgument = inputText.substring(lengthFirstIndex + 2);
+    secondArgument = inputText.substring(lengthFirstIndex + 4);
   }
 
   public String getStr1() {
@@ -90,7 +90,7 @@ class StringCalculator {
       throw new Exception("Вторым аргументом должна быть строка в кавычках");
     }
     String str2 = secondPart.substring(1, secondPart.length() - 1);
-    return str1.replaceAll(str2, "");
+    return str1.replace(str2, "");
   }
 
   private String multiplyString(String str1, String secondPart) throws Exception {
