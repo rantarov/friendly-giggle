@@ -30,7 +30,6 @@ class InputCheck {
   }
 
   private void checkInput(String inputText) throws Exception {
-//    inputText = inputText.replaceAll("\\s", "");
     if (!inputText.startsWith("\"") || inputText.indexOf("\"", 1) == -1) {
       throw new Exception("Первым аргументом должна быть строка в кавычках");
     }
